@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,700;0,800;1,700&display=swap');
+
+body{
+    background-color: rgb(126, 126, 126);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.box{
+    background-color: rgb(220, 220, 220);
+    width: 45%;
+    margin: 160px auto;
+    height: 400px;
+    border-radius: 22px 22px 200px 22px;
+    padding: 60px;
+}
+.form-container{
+    display: flex;
+}
+.form-container input{
+    font-size: 24px;
+    width: 90px;
+    height: 42px;
+    border: 1px solid rgb(162, 162, 162);
+    border-radius: 17px;
+    margin-right: 14px;
+}
+input::placeholder {
+    color: rgb(127, 127, 127);
+    padding: 10px;
+}
+.form-container label{
+    color: rgb(127, 127, 127);
+}
+.submit-card{
+    padding: 28px;
+}
+.submit-card input{
+    border-radius: 22px;
+    color: white;
+    background-color: blueviolet;
+    font-size: small;
+}
+.output-container{
+    display: flex;
+    flex-direction: column;
+}
+.result{
+    font-weight: 900;
+    font-size: 400%;
+    font-family: 'Poppins', sans-serif;
+}
+.result span{
+    color: blueviolet;
+}
