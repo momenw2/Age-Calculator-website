@@ -1,5 +1,4 @@
 const form = document.querySelector('form');
-// const userDayInput = document.querySelector('input');
 const userYear = document.querySelector('user-year');
 const userMonth = document.querySelector('user-month');
 const userDay = document.querySelector('user-day');
@@ -25,11 +24,41 @@ form.addEventListener('submit', e => {
     const userD = Math.abs(day - userDayInput);
 
 
-    userYearSpan.textContent = `${userY}`;
-    userMonthSpan.textContent = `${userM}`;
-    userDaySpan.textContent = `${userD}`;
+    // userYearSpan.textContent = `${userY}`;
+    // userMonthSpan.textContent = `${userM}`;
+    // userDaySpan.textContent = `${userD}`;
+
+    let yearCounter = 0;
+    let monthCounter = 0;
+    let dayCounter = 0;
 
 
+    const yeartimer = setInterval(() => {
+        userYearSpan.textContent = `${yearCounter}`;
+        if(yearCounter === userY){
+            clearInterval(yeartimer);
+        }else{
+            yearCounter++;
+        }
+    },10);
+
+    const monthtimer = setInterval(() => {
+        userMonthSpan.textContent = `${monthCounter}`;
+        if(monthCounter === userM){
+            clearInterval(monthtimer);
+        }else{
+            monthCounter++;
+        }
+    },50);
+
+    const daytimer = setInterval(() => {
+        userDaySpan.textContent = `${dayCounter}`;
+        if(dayCounter === userD){
+            clearInterval(daytimer);
+        }else{
+            dayCounter++;
+        }
+    },20);
 
 });
 
