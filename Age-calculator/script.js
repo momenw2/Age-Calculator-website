@@ -10,55 +10,53 @@ const userDaySpan = document.querySelector('.userDaySpan');
 form.addEventListener('submit', e => {
     e.preventDefault();
     
-    const userDayInput = form.day.value;
-    const userMonthInput = form.month.value;
-    const userYearInput = form.year.value;
+    const userDayInput = parseInt(form.day.value);
+    const userMonthInput = parseInt(form.month.value);
+    const userYearInput = parseInt(form.year.value);
 
     let today = new Date();
     let year = today.getFullYear();
     let month = today.getMonth() + 1;
     let day = today.getDate();
 
-    const userY = year - userYearInput;
-    const userM = month - userMonthInput;
+    let userY = year - userYearInput;
+    let userM = month - userMonthInput;
     const userD = Math.abs(day - userDayInput);
 
-
-    // userYearSpan.textContent = `${userY}`;
-    // userMonthSpan.textContent = `${userM}`;
-    // userDaySpan.textContent = `${userD}`;
+    if (userM < 0) {
+        userM += 12;
+        userY--;     
+    }
 
     let yearCounter = 0;
     let monthCounter = 0;
     let dayCounter = 0;
 
-
     const yeartimer = setInterval(() => {
         userYearSpan.textContent = `${yearCounter}`;
-        if(yearCounter === userY){
-            clearInterval(yeartimer);
-        }else{
+        if (yearCounter < userY) {
             yearCounter++;
+        } else {
+            clearInterval(yeartimer);
         }
-    },10);
+    }, 10);
 
     const monthtimer = setInterval(() => {
         userMonthSpan.textContent = `${monthCounter}`;
-        if(monthCounter === userM){
-            clearInterval(monthtimer);
-        }else{
+        if (monthCounter < userM) {
             monthCounter++;
+        } else {
+            clearInterval(monthtimer);
         }
-    },50);
+    }, 50);
 
     const daytimer = setInterval(() => {
         userDaySpan.textContent = `${dayCounter}`;
-        if(dayCounter === userD){
-            clearInterval(daytimer);
-        }else{
+        if (dayCounter < userD) {
             dayCounter++;
+        } else {
+            clearInterval(daytimer);
         }
-    },20);
+    }, 20);
 
 });
-
